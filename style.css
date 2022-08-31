@@ -35,17 +35,12 @@ body {
 
 .title {
     display: flex;
-    background-color: var(--secondary-color);
-    width: 100%;
-    height: 75px;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-    box-shadow: 1px 1px 7px var(--secondary-color);
     font-family:'La Belle Aurore', cursive;
-    font-size: 4rem;
-    color: var(--primary-color);
-    border-radius: 3px;
+    font-size: 5.5rem;
+    color: var(--secondary-color);
 }
 
 .to-do-list {
@@ -81,14 +76,12 @@ body {
 .to-do-item > input[type='text'] {
     border: none;
     width: 80%;
-    font: inherit;
 }
 
 .to-do-item > input[type='button'],
 .to-do-item > input[type='checkbox'] {
     width: 30px;
     height: 30px;
-    font: inherit;
 }
 
 
@@ -99,7 +92,7 @@ body {
 .to-do-new-item{
     display: flex;
     background-color: #e8e1ca;
-    border-radius: 3px;
+    border-radius: 4px;
     width: 100%;
     height: 70px;
     justify-content: space-evenly;
@@ -107,7 +100,7 @@ body {
     box-shadow: 1px 1px 5px var(--secondary-color);
     margin: 10px;
     font-family: 'Major Mono Display', monospace;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .to-do-new-item > input{
