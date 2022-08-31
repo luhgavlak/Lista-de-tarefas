@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Major+Mono+Display&display=swap');
 
 :root {
     --primary-color: #b7b49e;
     --secondary-color: #757466;
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     font-size: 62.5%;
 }
@@ -22,7 +22,6 @@ body {
     background-position: 0px 0px, 12px 12px;
     background-size: 24px 24px;
     background-color: rgb(174, 168, 147);
-    font-family:'La Belle Aurore', cursive;
 }
 
 .to-do {
@@ -31,20 +30,22 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    gap: 15px;
+    gap: 10px;
 }
 
 .title {
     display: flex;
     background-color: var(--secondary-color);
     width: 100%;
-    height: 80px;
+    height: 75px;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-    box-shadow: 1px 1px 5px var(--secondary-color);
-    font-size: 3rem;
+    box-shadow: 1px 1px 7px var(--secondary-color);
+    font-family:'La Belle Aurore', cursive;
+    font-size: 4rem;
     color: var(--primary-color);
+    border-radius: 3px;
 }
 
 .to-do-list {
@@ -62,6 +63,9 @@ body {
     align-items: center;
     padding: 5px;
     box-shadow: 1px 1px 5px var(--secondary-color);
+    font-family:'Major Mono Display', monospace;
+    font-size: 1.2rem;
+    color: var(--secondary-color)
 }
 .to-do-item > div {
     width: 80%;
@@ -95,13 +99,15 @@ body {
 .to-do-new-item{
     display: flex;
     background-color: #e8e1ca;
+    border-radius: 3px;
     width: 100%;
     height: 70px;
     justify-content: space-evenly;
     padding: 10px 0;
     box-shadow: 1px 1px 5px var(--secondary-color);
     margin: 10px;
-    font: inherit;
+    font-family: 'Major Mono Display', monospace;
+    font-size: 1.2rem;
 }
 
 .to-do-new-item > input{
@@ -115,4 +121,6 @@ body {
 .to-do-new-item > input::placeholder {
     font-style: italic;
     font-weight: normal;
+    font-family: 'Major Mono Display', monospace;
+    font-size: 1.2rem;
 }
