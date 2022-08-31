@@ -60,14 +60,17 @@ body {
     box-shadow: 1px 1px 5px var(--secondary-color);
     font-family:'Major Mono Display', monospace;
     font-size: 1.2rem;
-    color: var(--secondary-color)
+    color: var(--secondary-color);
+    border-top-left-radius: 0%;
+    background-color: #b2ad97;
 }
 .to-do-item > div {
     width: 80%;
+    font-weight: bold;
 }
 .to-do-item:hover {
     cursor: pointer;
-    transition: all .5s ease;
+    transition: all .10s ease;
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
@@ -82,6 +85,8 @@ body {
 .to-do-item > input[type='checkbox'] {
     width: 30px;
     height: 30px;
+    border: none;
+    background-color: transparent;
 }
 
 
@@ -105,15 +110,12 @@ body {
 
 .to-do-new-item > input{
     background-color: #e8e1ca;
-    border: none;
+    border:none;
     width: 80%;
-    outline: none;
-    font: inherit;
 }
 
 .to-do-new-item > input::placeholder {
     font-style: italic;
-    font-weight: normal;
     font-family: 'Major Mono Display', monospace;
     font-size: 1.2rem;
 }
