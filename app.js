@@ -1,22 +1,22 @@
 'use strict';
 
-let banco = [];
+let bank = [];
 
-const getBanco = () => JSON.parse(localStorage.getItem ('todoList')) ?? [];
-const setBanco = (banco) => localStorage.setItem ('todoList', JSON.stringify(banco));
+const getBank = () => JSON.parse(localStorage.getItem ('todoList')) ?? [];
+const setBank = (banco) => localStorage.setItem ('todoList', JSON.stringify(bank));
 
-const criarItem = (tarefa, status, indice) => {
+const criarItem = (task, status, indice) => {
     const item = document.createElement('label');
-    item.classList.add('todo__item');
+    item.classList.add('to-do-item');
     item.innerHTML = `
         <input type="checkbox" ${status} data-indice=${indice}>
-        <div>${tarefa}</div>
+        <div>${task}</div>
         <input type="button" value="X" data-indice=${indice}>
     `;
     document.getElementById('todoList').appendChild(item);
 }
 
-const limparTarefas = () => {
+const cleanTasks = () => {
     const todoList = document.getElementById('todoList');
     while (todoList.firstChild) {
         todoList.removeChild(todoList.lastChild);
@@ -24,34 +24,34 @@ const limparTarefas = () => {
 }
 
 const atualizarTela = () => {
-    limparTarefas();
-    const banco = getBanco(); 
-    banco.forEach ( (item, indice) => criarItem (item.tarefa, item.status, indice));
+    cleanTasks();
+    const bank= getBank(); 
+    bank.forEach ( (item, indice) => criarItem (item.task, item.status, indice));
 }
 
 const inserirItem = (evento) => {
     const tecla = evento.key;
     const texto = evento.target.value;
     if (tecla === 'Enter'){
-        const banco = getBanco();
-        banco.push ({'tarefa': texto, 'status': ''});
-        setBanco(banco);
+        const banco = getBank();
+        bank.push ({'task': texto, 'status': ''});
+        setBank(bank);
         atualizarTela();
         evento.target.value = '';
     }
 }
 
 const removerItem = (indice) => {
-    const banco = getBanco();
-    banco.splice (indice, 1);
-    setBanco(banco);
+    const bank = getBank();
+    bank.splice (indice, 1);
+    setBank(bank);
     atualizarTela();
 }
 
 const atualizarItem = (indice) => {
-    const banco = getBanco();
-    banco[indice].status = banco[indice].status === '' ? 'checked' : '';
-    setBanco(banco);
+    const bank = getBank();
+    banco[indice].status = bank[indice].status === '' ? 'checked' : '';
+    setBank(bank);
     atualizarTela();
 }
 
