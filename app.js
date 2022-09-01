@@ -3,15 +3,15 @@
 let bank = [];
 
 const getBank = () => JSON.parse(localStorage.getItem ('todoList')) ?? [];
-const setBank = (banco) => localStorage.setItem ('todoList', JSON.stringify(bank));
+const setBank = (bank) => localStorage.setItem ('todoList', JSON.stringify(bank));
 
-const criarItem = (task, status, indice) => {
+const createItem = (task, status, index) => {
     const item = document.createElement('label');
     item.classList.add('to-do-item');
     item.innerHTML = `
-        <input type="checkbox" ${status} data-indice=${indice}>
+        <input type="checkbox" ${status} data-index=${index}>
         <div>${task}</div>
-        <input type="button" value="X" data-indice=${indice}>
+        <input type="button" value="X" data-index=${index}>
     `;
     document.getElementById('todoList').appendChild(item);
 }
@@ -23,51 +23,51 @@ const cleanTasks = () => {
     }
 }
 
-const atualizarTela = () => {
+const refreshScreen = () => {
     cleanTasks();
     const bank= getBank(); 
-    bank.forEach ( (item, indice) => criarItem (item.task, item.status, indice));
+    bank.forEach ( (item, index) => createItem (item.task, item.status, index));
 }
 
 const inserirItem = (evento) => {
     const tecla = evento.key;
     const texto = evento.target.value;
     if (tecla === 'Enter'){
-        const banco = getBank();
+        const bank = getBank();
         bank.push ({'task': texto, 'status': ''});
         setBank(bank);
-        atualizarTela();
+        refreshScreen();
         evento.target.value = '';
     }
 }
 
-const removerItem = (indice) => {
+const removerItem = (index) => {
     const bank = getBank();
-    bank.splice (indice, 1);
+    bank.splice (index, 1);
     setBank(bank);
-    atualizarTela();
+    refreshScreen();
 }
 
-const atualizarItem = (indice) => {
+const atualizarItem = (index) => {
     const bank = getBank();
-    banco[indice].status = bank[indice].status === '' ? 'checked' : '';
+    banco[index].status = bank[index].status === '' ? 'checked' : '';
     setBank(bank);
-    atualizarTela();
+    refreshScreen();
 }
 
 const clickItem = (evento) => {
     const elemento = evento.target;
     console.log (elemento.type);
     if (elemento.type === 'button') {
-        const indice = elemento.dataset.indice;
-        removerItem (indice);
+        const index = elemento.dataset.index;
+        removerItem (index);
     }else if (elemento.type === 'checkbox') {
-        const indice = elemento.dataset.indice;
-        atualizarItem (indice);
+        const index = elemento.dataset.index;
+        atualizarItem (index);
     }
 }
 
 document.getElementById('newItem').addEventListener('keypress', inserirItem);
 document.getElementById('todoList').addEventListener('click', clickItem);
 
-atualizarTela();
+refreshScreen();
